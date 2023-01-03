@@ -1,10 +1,28 @@
 {
   "expo": {
-    "name": "todolist",
-    "slug": "todolist",
+    "name": "Todo List",
+    "slug": "todoList",
     "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "splash": {
+      "image": "./assets/splash.png",
+      "backgroundColor": "#0D0D0D",
+      "resizeMode": "contain"
+    },
+    "androidStatusBar": {
+      "barStyle": "light-content"
+    },
+    "android": {
+      "package": "com.todolist"
+    },
+    "ios": {
+      "bundleIdentifier": "com.todolist"
+    },
+    "description": "Todo list from the igniter challenge",
+    "githubUrl": "https://github.com/HelvioFilho/todolist"   
   }
 }
