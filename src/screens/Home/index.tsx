@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FlatList, Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
 import { Feather } from '@expo/vector-icons'
@@ -13,10 +13,16 @@ export interface DataProps {
 };
 
 export function Home() {
+  const [tasks, setTasks] = useState<DataProps[]>([]);
+  const [task, setTask] = useState('');
 
   const data: DataProps[] = [
 
   ];
+
+  function handleAddTask(){
+
+  }
 
   function handleSelect(id: number) {
     console.log(`item ${id} marcado`);
@@ -37,6 +43,7 @@ export function Home() {
             style={styles.input}
             placeholder='Adicione uma nova tarefa'
             placeholderTextColor='#808080'
+            
           />
           <TouchableOpacity
             style={styles.button}

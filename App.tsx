@@ -1,7 +1,8 @@
 import React from 'react';
-import { ActivityIndicator, StatusBar } from 'react-native';
+import { StatusBar } from 'react-native';
 import { Home } from './src/screens/Home';
 import { useFonts, Inter_400Regular, Inter_700Bold } from '@expo-google-fonts/inter';
+import { Loading } from './src/components/Loading';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -10,7 +11,7 @@ export default function App() {
   });
 
   if(!fontsLoaded){
-    return <ActivityIndicator size={'large'} color="#D9D9D9" />
+    return <Loading />
   }
   return (
     <>

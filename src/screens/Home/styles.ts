@@ -18,6 +18,7 @@ export const styles = StyleSheet.create({
     bottom: -25,
     elevation: 999,
     zIndex: 999,
+    overflow: 'visible'
   },
   input: {
     flex: 1,
