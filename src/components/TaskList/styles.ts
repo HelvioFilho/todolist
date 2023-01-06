@@ -3,15 +3,19 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   wrapper: {
     flexDirection: 'row',
+    minHeight: 64,
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: '#262626',
-    padding: 12,
+    paddingHorizontal: 12,
     borderRadius: 8,
     marginBottom: 8
   },
   button: {
     flex: 1,
+    height: '100%',
+    paddingVertical: 12,
+    marginRight: 5,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -34,6 +38,7 @@ export const styles = StyleSheet.create({
   text: {
     flex: 1,
     fontFamily: 'Inter_400Regular',
+    lineHeight: 14 * (140 / 100),
     fontSize: 14,
     color: "#F2F2F2",
   },

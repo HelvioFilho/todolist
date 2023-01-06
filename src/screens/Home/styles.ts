@@ -15,10 +15,8 @@ export const styles = StyleSheet.create({
     width: '100%',
     position: 'absolute',
     flexDirection: 'row',
-    bottom: -25,
-    elevation: 999,
-    zIndex: 999,
-    overflow: 'visible'
+    top: -27,
+    alignSelf: 'center',
   },
   input: {
     flex: 1,

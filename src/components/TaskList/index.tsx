@@ -1,5 +1,5 @@
-import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
+import { Alert, Text, TouchableOpacity, View } from 'react-native';
 import { Feather, FontAwesome5 } from '@expo/vector-icons';
 import { DataProps } from '../../screens/Home';
 import { styles } from './styles';
@@ -11,6 +11,28 @@ interface TaskProps {
 }
 
 export function TaskList({ data, onSelect, onRemove }: TaskProps) {
+  const [isTrashActive, setIsTrashActive] = useState(false);
+
+  function handleDeleteConfirmation(){
+    setIsTrashActive(true),
+    Alert.alert('Atenção', 'Tem certeza que deseja excluir a tarefa? \n Essa ação não pode ser desfeita!',[
+      {
+        text: 'Sim',
+        onPress: onRemove,
+      },
+      {
+        text: 'Não',
+        onPress: () => setIsTrashActive(false),
+        style: 'cancel',
+      }
+    ],
+    {
+      cancelable: true,
+      onDismiss: () => setIsTrashActive(false),
+    }
+    );
+  }
+
   return (
     <View style={styles.wrapper}>
       <TouchableOpacity
@@ -27,14 +49,14 @@ export function TaskList({ data, onSelect, onRemove }: TaskProps) {
             :
             <View style={[styles.circle, styles.unChecked]} />
         }
-        <Text style={[styles.text, data.isChecked && styles.textChecked]}>Integer urna interdum massa libero auctor neque turpis turpis semper.</Text>
+        <Text style={[styles.text, data.isChecked && styles.textChecked]}>{data.text}</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.trash}
         activeOpacity={.8}
-        onPress={onRemove}
+        onPress={handleDeleteConfirmation}
       >
-        <Feather name='trash-2' size={20} color={'#808080'} />
+        <Feather name='trash-2' size={20} color={isTrashActive ? '#E25858' : '#808080'} />
       </TouchableOpacity>
     </View>
   );
